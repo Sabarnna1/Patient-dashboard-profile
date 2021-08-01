@@ -17,12 +17,10 @@ include("auth_session.php");
     <h1>Date</h1>
     <p id="date"></p>
   </div>
-
   <div class="container">
     <div class="row">
       <div class="menu">
-        
-          <h3 style="color:#3074e3; text-align: center;"><i class="fas fa-user" style="color:#3074e3;"></i>&nbspPatient Information</h3><br>
+          <h3 style="color:#3074e3; text-align: left; font-size: 25px;"><i class="fas fa-user" style="color:#3074e3;"></i>&nbspPatient Information</h3><br>
           <h5><?php echo $_SESSION['username']; ?></h5><br>
           <h5><?php echo $_SESSION['email']; ?></h5><br><br>
           <p class="birth">Birth Date</p><br>
@@ -35,11 +33,13 @@ include("auth_session.php");
           <h5><?php echo $_SESSION['sex']; ?></h5><br>
           <p class="birth">Reason for seeing the doctor</p><br>
           <h5><?php echo $_SESSION['rod']; ?></h5><br>
-        
+          <p class="birth">Current Treatment</p><br>
+          <form action="post_update.php">
+          <h5><textarea rows="2" cols="11" name="" id="curr_treatment" value="<?=$curr_treatment?>"></textarea></h5>
+          </form>
       </div>
       <div class="main">
-        
-          <h3 style="color:#3074e3; text-align: center; "><i class="fas fa-info-circle" style="color:#3074e3;"></i>&nbspPatient Medical History</h3><br>
+          <h3 style="color:#3074e3; text-align: left; font-size: 25px; "><i class="fas fa-info-circle" style="color:#3074e3;"></i>&nbspPatient Medical History</h3><br>
           <p class="birth">Please list any drug allergies</p><br>
           <h5  value="<?=$allergies?>" id="edit" contenteditable="true"><?php echo $_SESSION['allergies']; ?></h5><br>
           <p class="birth">Other illness</p><br>
@@ -48,7 +48,7 @@ include("auth_session.php");
           <h5 value="<?=$ops?>" id="edit" contenteditable="true"><?php echo $_SESSION['ops']; ?></h5><br>
           <p class="birth">Please list your current Medications</p><br>
           <h5 value="<?=$meds?>" id="edit" contenteditable="true"><?php echo $_SESSION['meds']; ?></h5><br>
-          <h3 style="color:#3074e3; text-align: center; "><i class="fas fa-info-circle" style="color:#3074e3;"></i>&nbspHealthy and Unhealthy Habits</h3><br>
+          <h3 style="color:#3074e3; text-align: left; font-size: 25px;"><i class="fas fa-info-circle" style="color:#3074e3;"></i>&nbspHealthy and Unhealthy Habits</h3><br>
           <p class="birth">Exercise</p><br>
           <h5 value="<?=$exercise?>" id="edit" contenteditable="true"><?php echo $_SESSION['exercise']; ?></h5><br>
           <p class="birth">Eating following a diet</p><br>
@@ -62,10 +62,10 @@ include("auth_session.php");
           <p class="birth">Include other comments regarding medical history</p><br>
           <h5 value="<?=$comments?>" id="edit" contenteditable="true"><?php echo $_SESSION['comments']; ?></h5><br>
           <button type="button" value="Save Changes" onclick="saveEdits()">Save Changes</button>
-        
       </div>
     </div>
   </div>
+  <br>
   <footer>
    <div class="content">
      <div class="left box">
