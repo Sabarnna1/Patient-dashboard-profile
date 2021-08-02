@@ -19,7 +19,8 @@ include("auth_session.php");
   </div>
   <div class="container">
     <div class="row">
-      <div class="menu">
+      <div class=" col-md-6">
+        <br>
           <h3 style="color:#3074e3; text-align: left; font-size: 25px;"><i class="fas fa-user" style="color:#3074e3;"></i>&nbspPatient Information</h3><br>
           <h5><?php echo $_SESSION['username']; ?></h5><br>
           <h5><?php echo $_SESSION['email']; ?></h5><br><br>
@@ -35,10 +36,11 @@ include("auth_session.php");
           <h5><?php echo $_SESSION['rod']; ?></h5><br>
           <p class="birth">Current Treatment</p><br>
           <form action="post_update.php">
-          <h5><textarea rows="2" cols="11" name="" id="curr_treatment" value="<?=$curr_treatment?>"></textarea></h5>
+          <h5><textarea rows="2" cols="25" name="" id="curr_treatment" value="<?=$curr_treatment?>"></textarea></h5>
           </form>
       </div>
-      <div class="main">
+      <div class="col-md-6 col-xs-1">
+        <br>
           <h3 style="color:#3074e3; text-align: left; font-size: 25px; "><i class="fas fa-info-circle" style="color:#3074e3;"></i>&nbspPatient Medical History</h3><br>
           <p class="birth">Please list any drug allergies</p><br>
           <h5  value="<?=$allergies?>" id="edit" contenteditable="true"><?php echo $_SESSION['allergies']; ?></h5><br>
@@ -118,28 +120,21 @@ include("auth_session.php");
   </script>
   <script type="text/javascript">
     function saveEdits() {
-
       //get the editable element
       var editElem = document.getElementById("edit");
-
       //get the edited element content
       var userVersion = editElem.innerHTML;
-
       //save the content to local storage
       localStorage.userEdits = userVersion;
-
       //write a confirmation to the user
       document.getElementById("update").innerHTML = "Saved Changes";
-
     }
 
     function checkEdits() {
-
       //find out if the user has previously saved edits
       if (localStorage.userEdits != null)
         document.getElementById("edit").innerHTML = localStorage.userEdits;
     }
   </script>
 </body>
-
 </html>
